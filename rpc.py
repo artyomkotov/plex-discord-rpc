@@ -45,8 +45,17 @@ def update_discord_rpc():
                 platform = media.players[0].platform or 'Unknown'
                 
                 # Determine the appropriate small image based on the platform
-                if platform.lower() == 'windows':
+                platform_lower = platform.lower()
+                if platform_lower == 'windows':
                     small_image = 'windows'
+                elif platform_lower == 'android':
+                    small_image = 'android'
+                elif platform_lower == 'macos':
+                    small_image = 'macos'
+                elif platform_lower == 'linux':
+                    small_image = 'linux'
+                elif platform_lower == 'ios':
+                    small_image = 'ios'
                 else:
                     small_image = 'default'
                 
