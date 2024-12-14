@@ -27,13 +27,16 @@ This script updates your Discord Rich Presence with the currently playing media 
 
 3. Upload the necessary images to your Discord application's assets:
     - `windows`: An image representing the Windows platform.
-    - `plexamp`: An image representing the plexamp application.
+    - `macos`: An image representing the macOS platform.
+    - `linux`: An image representing the Linux platform.
+    - `ios`: An image representing the iOS platform.
     - `android`: An image representing the Android platform.
-    - `platform_icon`: A default image for other platforms.
+    - `plexamp`: An image representing the plexamp application.
+    - `default`: A default image for other platforms.
 
 ### Configuration
 
-1. Open the [rpc.py] file in a text editor.
+1. Open the rpc.py file in a text editor.
 
 2. Replace the placeholder values with your actual Plex server details and Discord Client ID:
 
