@@ -47,32 +47,25 @@ def update_discord_rpc():
                 # Determine the appropriate small image based on the platform
                 if platform.lower() == 'windows':
                     small_image = 'windows'
-                elif platform.lower() == 'android':
-                    small_image = 'android'
                 else:
-                    small_image = 'platform_icon'  # Default image
+                    small_image = 'default'
                 
-                try:
-                    RPC.update(
-                        state=f"by {artist}",
-                        details=title,
-                        large_image="plexamp",
-                        large_text=album,
-                        small_image=small_image,
-                        small_text=platform
-                    )
-                    print(f"Updated Discord RPC: {title} by {artist} on {platform}")
-                except Exception as e:
-                    print(f"Error updating Discord RPC: {e}")
+                # Update Discord RPC
+                RPC.update(
+                    state=f"by {artist}",
+                    details=title,
+                    large_image="plexamp",
+                    large_text=album,
+                    small_image=small_image,
+                    small_text=platform
+                )
     else:
-        current_track_id = None
-        try:
+        # Clear the RPC if no media is playing or if media is paused
+        if current_track_id is not None:
             RPC.clear()
-            print("No media playing. Cleared Discord RPC.")
-        except Exception as e:
-            print(f"Error clearing Discord RPC: {e}")
+            current_track_id = None
 
 if __name__ == '__main__':
     while True:
         update_discord_rpc()
-        time.sleep(1)  # Update every 1 second
+        time.sleep(5)  # Update every 5 seconds
